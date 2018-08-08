@@ -221,7 +221,7 @@ footer ul li a:hover {
 }
 
 div.custom-container {
-	background-color: #d3d3d3;
+	background-color: #fff !important;
 }
 
 svg.custom .node circle {

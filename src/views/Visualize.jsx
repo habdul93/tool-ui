@@ -1,17 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Tree from 'react-tree-graph';
-import 'react-tree-graph/dist/style.css'
+import 'react-tree-graph/dist/style.css';
+import { PieChart, Pie, Tooltip, Cell } from 'recharts';
+const COLORS = ['#0088FE', '#FFBB28', '#00C49F', '#FF8042'];
+const piedata = [{name: 'Failure Mode Effect', value: 250}, {name: 'Failure Mode', value: 30},
+    {name: 'Failure Cause', value: 300}, {name: 'Detection', value: 200}];
+
+// import Sunburst from 'react-sunburst-d3-v4';
+// import datasun from './data';
 
 
 class Visualize extends React.Component {
 
-    componentWillMount() {
+
+    constructor(props) {
+        super(props)
+        this.onClick = this.onClick.bind(this)
+        this.state = {
+            selectednode:""
+        }
+
     }
 
-    componentWillUnmount() {
+    onClick(nodename){
+      this.setState({selectednode:nodename})
     }
 
+    
     render() {
         const { user, error,forcereset} = this.props; 
         let data = {
@@ -96,17 +112,34 @@ class Visualize extends React.Component {
 
                 }}
                 gProps={{
-                    onClick: onClick
+                    onClick: this.onClick
                 }}
                 />
+                <h2>{this.state.selectednode}</h2>
+                {this.state.selectednode &&
+            <PieChart width={300} height={200} >
+                 <Pie
+                     data={piedata}
+                         cx={150}
+                         cy={110}
+                          innerRadius={60}
+                        outerRadius={80}
+                        fill="#8884d8"
+                       paddingAngle={5}
+                       label
+                         >
+                         {
+                        piedata.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]} />)
+                           }
+                          </Pie>
+                          <Tooltip />
+             </PieChart>
+                }
             </div>
         )
     }
 };
 
-function onClick(nodeKey) {
-	alert(nodeKey);
-}
 
 const mapStateToProps = (state, props) => { // eslint-disable-line no-unused-vars
     return {

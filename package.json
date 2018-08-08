@@ -28,9 +28,11 @@
     "react-router-dom": "4.2.2",
     "react-router-redux": "5.0.0-alpha.6",
     "react-scripts": "1.1.4",
+    "react-sunburst-d3-v4": "^0.1.6",
     "react-swipeable-views": "0.12.13",
     "react-tap-event-plugin": "^3.0.3",
     "react-tree-graph": "^3.1.1",
+    "recharts": "^1.1.0",
     "redux": "^3.6.0",
     "redux-thunk": "2.1.0",
     "superagent": "^3.8.3"
