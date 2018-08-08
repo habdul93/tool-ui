@@ -9,6 +9,7 @@ import ProjectDetail from "views/ProjectDetail/ProjectDetail.jsx";
 import FullGraph from "views/FullGraph/FullGraph.jsx";
 import UserProfile from "views/UserProfile/UserProfile.jsx";
 import Dashboard from "views/Dashboard/Dashboard.jsx";
+import Visualize from "views/Visualize.jsx";
 
 const dashboardRoutes = [
   {
@@ -25,27 +26,35 @@ const dashboardRoutes = [
     icon: Timeline,
     component: ProjectDetail
   },
+  // {
+  //   path: "/dashdoard",
+  //   sidebarName: "Charts",
+  //   navbarName: "Charts",
+  //   icon: Timeline,
+  //   component: Dashboard
+  // },
+  // {
+  //   path: "/fullGraph",
+  //   sidebarName: "Graph",
+  //   navbarName: "Full Graph",
+  //   icon: Timeline,
+  //   component: FullGraph
+  // },
+  // {
+  //   path: "/userProfile",
+  //   sidebarName: "User",
+  //   navbarName: "User Profile",
+  //   icon: Timeline,
+  //   component: UserProfile
+  // },
   {
-    path: "/dashdoard",
-    sidebarName: "Charts",
-    navbarName: "Charts",
+    path: "/Visualize",
+    sidebarName: "Visualize",
+    navbarName: "Micro view of Functions",
     icon: Timeline,
-    component: Dashboard
+    component: Visualize
   },
-  {
-    path: "/fullGraph",
-    sidebarName: "Graph",
-    navbarName: "Full Graph",
-    icon: Timeline,
-    component: FullGraph
-  },
-  {
-    path: "/userProfile",
-    sidebarName: "User",
-    navbarName: "User Profile",
-    icon: Timeline,
-    component: UserProfile
-  },
+
   { redirect: true, path: "/", to: "/projects", navbarName: "Redirect" }
 ];
 
